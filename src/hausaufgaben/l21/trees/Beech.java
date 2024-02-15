@@ -1,16 +1,14 @@
 package hausaufgaben.l21.trees;
 
-public class Bike {
+public class Beech {
     String name;
-    int speed;
+    int height;
 
-    public Bike(String name, int speed) {
+    public Beech(String name, int height) {
         this.name = name;
-        this.speed = speed;
+        this.height = height;
 
     }
 
-    public String toString() {
-        return "Bike, " + this.name + "," + speed;
-    }
+    public String toString() { return "Beech, " + this.name + ", " + height; }
 }

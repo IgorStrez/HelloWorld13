@@ -1,4 +1,4 @@
-package hausaufgaben.l19.animal;
+package hausaufgaben.l21.animal;
 
 import java.util.Scanner;
 

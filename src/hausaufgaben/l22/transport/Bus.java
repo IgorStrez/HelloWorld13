@@ -1,16 +1,8 @@
-package hausaufgaben.l21.transport;
+package hausaufgaben.l22.transport;
 
-public class Bus {
-    String name;
-    int speed;
+public class Bus extends Transport {
 
-    public Bus(String name, int speed) {
-        this.name = name;
-        this.speed = speed;
-
-    }
-
-    public String toString() {
-        return "Bus, " + this.name + "," + speed;
+    public Bus(String colour, String brand, int age) {
+        super (colour, brand, age);
     }
 }

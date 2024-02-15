@@ -1,13 +1,14 @@
-package hausaufgaben.l19;
+package hausaufgaben.l21;
 
-import hausaufgaben.l19.animal.*;
-import hausaufgaben.l19.people.*;
-import hausaufgaben.l19.transport.*;
+import hausaufgaben.l21.animal.*;
+import hausaufgaben.l21.people.*;
+import hausaufgaben.l21.transport.*;
+import hausaufgaben.l21.trees.*;
 
 import java.util.ArrayList;
 
 
-public class L19Main {
+public class L21Main {
 
     public static void main (String[] args) {
         Cat kisa = new Cat("Kisa", 3);
@@ -18,6 +19,9 @@ public class L19Main {
         Bike bmw = new Bike("BMW", 333);
         Bus mers = new Bus("Mers", 60);
         Car vw = new Car("VW", 300);
+        Beech vasa = new Beech("Vasa", 13);
+        Birch lena = new Birch("Lena", 10);
+        Oak artem = new Oak("Artem", 17);
 
         ArrayList<Car> cars = new ArrayList<>();
         cars.add(new Car("VAZ", 130));
@@ -38,5 +42,8 @@ public class L19Main {
         System.out.println(bmw);
         System.out.println(mers);
         System.out.println(vw);
+        System.out.println(vasa);
+        System.out.println(lena);
+        System.out.println(artem);
     }
 }

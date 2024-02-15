@@ -1,4 +1,4 @@
-package hausaufgaben.l19.transport;
+package hausaufgaben.l21.transport;
 
 public class Bus {
     String name;

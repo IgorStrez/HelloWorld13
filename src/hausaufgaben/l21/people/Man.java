@@ -1,4 +1,4 @@
-package hausaufgaben.l19.people;
+package hausaufgaben.l21.people;
 import java.util.Scanner;
 public class Man {
     String name;
