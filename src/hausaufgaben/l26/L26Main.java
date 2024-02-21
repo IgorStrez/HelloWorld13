@@ -1,6 +1,6 @@
 package hausaufgaben.l26;
 
-class Main {
+class L26Main {
     public static void main(String[] args) {
         Shape[] shapes = {
                 new Triangle("yellow", "Russia", 3, 5, 2.4, 3.3),
