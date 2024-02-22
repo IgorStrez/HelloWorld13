@@ -3,13 +3,13 @@ interface Shape {
 
 
     // абстрактный метод для получения площади
-    public abstract double getArea();
+   double getArea();
 
     // абстрактный метод для получения периметра
-    public abstract double getPerimeter();
+    double getPerimeter();
 
     // абстрактный метод для определения абстрактной красоты
-    public abstract double getTotal();
+    double getTotal();
 }
 
 

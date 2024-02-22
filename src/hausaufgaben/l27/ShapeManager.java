@@ -1,6 +1,6 @@
 package hausaufgaben.l27;
 
-public abstract class ShapeManager {
+public abstract class ShapeManager implements Shape{
     protected String color;
     protected String production;
     protected int quantity;
@@ -11,9 +11,6 @@ public abstract class ShapeManager {
         this.quantity = quantity;
     }
 
-    public abstract double getArea();
-    public abstract double getPerimeter();
-    public abstract double getTotal();
     public void printInfo() {
         System.out.println("Цвет: " + color);
         System.out.println("Производство: " + production);
