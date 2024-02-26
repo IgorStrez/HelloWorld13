@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Bookcase {
     private List<Book> books = new ArrayList<>();
 
-    class  Book {
+    static class  Book {
         String author;
         String title;
         int year;
@@ -47,7 +47,7 @@ public class Bookcase {
     }
 
     void addBook(String author, String title, int year) {
-        books.add(new Book(author,title, year));
+        books.add(new Book(author, title, year));
     }
 
     void removeBook(int number) {
