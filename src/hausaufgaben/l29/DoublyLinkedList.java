@@ -1,7 +1,7 @@
 package hausaufgaben.l29;
 
 class DoublyLinkedList implements IntList {
-    private static class DoubleNode {
+    static class DoubleNode {
         int data;
         DoubleNode prev;
         DoubleNode next;
@@ -13,75 +13,56 @@ class DoublyLinkedList implements IntList {
         }
     }
 
-    private DoubleNode head;
-    private DoubleNode tail;
-    private int size;
+    DoubleNode head;
+    DoubleNode tail;
+    int size;
+
+    public DoublyLinkedList() {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+}
 
     @Override
     public int get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Индекс выходит за рамки");
         }
-        DoubleNode current = getNode(index);
+        // Начинаем с головы списка
+        DoubleNode current = head;
+        // Идём по списку, пока не достигнем нужного индекса
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        // Возвращаем значение текущего узла
         return current.data;
     }
-
     @Override
-    public int add(int value) {
-        return addLast(value);
-    }
+    public void add(int value) {
+        DoubleNode node = new DoubleNode(value);
 
-    @Override
-    public int add(int value, int index) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Индекс выходит за рамки");
-        }
-        if (index == size) {
-            return addLast(value);
-        } else if (index == 0) {
-            addFirst(value);
-            return 0;
+        if (this.head == null) {
+            this.head = node;
+            this.tail = node;
         } else {
-            addAtIndex(value, index);
-            return index;
+            this.tail.next = node;
+            node.prev = this.tail;
+            this.tail = node;
         }
     }
-
-    @Override
-    public int addLast(int value) {
-        if (size == 0) {
-            addFirst(value);
-            return 0;
-        } else {
-            DoubleNode newNode = new DoubleNode(value);
-            tail.next = newNode;
-            newNode.prev = tail;
-            tail = newNode;
-            size++;
-            return size - 1;
-        }
-    }
-
-    @Override
-    public int addFirst(int value) {
-        DoubleNode newNode = new DoubleNode(value);
-        if (size == 0) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            newNode.next = head;
-            head.prev = newNode;
-            head = newNode;
-        }
-        size++;
-        return 0;
-    }
-
     @Override
     public void remove(int index) {
+        // Проверяем, что индекс находится в допустимом диапазоне
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Индекс выходит за рамки");
+            throw new IndexOutOfBoundsException("Index out of bounds");
         }
+        // Начинаем с головы списка
+        DoubleNode current = head;
+        // Проходим по списку до нужного индекса
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        // Проверяем случаи удаления элемента из начала или конца списка
         if (size == 1) {
             head = null;
             tail = null;
@@ -92,48 +73,11 @@ class DoublyLinkedList implements IntList {
             tail = tail.prev;
             tail.next = null;
         } else {
-            DoubleNode current = getNode(index);
+            // Удаление элемента из середины списка
             current.prev.next = current.next;
             current.next.prev = current.prev;
         }
+        // Уменьшаем размер списка
         size--;
-    }
-
-    @Override
-    public int size() {
-        return size;
-    }
-
-    @Override
-    public void clear() {
-        head = null;
-        tail = null;
-        size = 0;
-    }
-
-    private DoubleNode getNode(int index) {
-        if (index < size / 2) {
-            DoubleNode current = head;
-            for (int i = 0; i < index; i++) {
-                current = current.next;
-            }
-            return current;
-        } else {
-            DoubleNode current = tail;
-            for (int i = size - 1; i > index; i--) {
-                current = current.prev;
-            }
-            return current;
-        }
-    }
-
-    private void addAtIndex(int value, int index) {
-        DoubleNode current = getNode(index - 1);
-        DoubleNode newNode = new DoubleNode(value);
-        newNode.next = current.next;
-        newNode.prev = current;
-        current.next.prev = newNode;
-        current.next = newNode;
-        size++;
     }
 }
